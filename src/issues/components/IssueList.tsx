@@ -1,6 +1,13 @@
+import { useIssues } from '../hooks/useIssues';
+import { GitHubIssues } from '../interfaces/issue.interface';
 import { IssueItem } from './IssueItem';
 
-export const IssueList = () => {
+interface IssueListProps {
+  issues: GitHubIssues[]
+}
+
+export const IssueList = ({ issues }: IssueListProps) => {
+
   return (
     <>
       {/* Botones de All, Open, Closed */}
@@ -12,8 +19,8 @@ export const IssueList = () => {
 
       {/* Lista de issues */}
       <div className="mt-4">
-        {[1, 2, 3].map((issue) => (
-          <IssueItem key={issue} />
+        {issues?.map((issue) => (
+          <IssueItem key={issue.id} issue={issue} />
         ))}
       </div>
     </>
