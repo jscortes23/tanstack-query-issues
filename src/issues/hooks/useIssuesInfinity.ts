@@ -20,7 +20,7 @@ export const useIssuesInfinity = ({ state, selectedLabels }: useIssuesProps) => 
     },
     staleTime: 1000 * 60 * 60,
     initialPageParam: 0,
-    getNextPageParam: (lastPage, page) => lastPage.length > 0 ? lastPage.length + 1 : undefined,
+    getNextPageParam: (lastPage, pages) => lastPage.length > 0 ? pages.length + 1 : undefined,
   })
 
   return {
